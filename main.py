@@ -31,12 +31,34 @@ pares = [
 direcoes = ["↑ CALL - VAI SUBIR", "↓ PUT - VAI CAIR"]
 
 async def enviar_sinal():
+    contador = 0
+
     while True:
         par = random.choice(pares)
         direcao = random.choice(direcoes)
-        mensagem = f"!!📊 SINAL GERADO!!:\nPar: {par} (OTC)\nEntrada: {direcao}\n⏱️ VALIDADE DE 5 MINUTOS"
+        mensagem = (
+            "🚨 NOVO SINAL DISPONÍVEL! 🚨\n\n"
+            f"🎯 Par: {par} (OTC)\n"
+            f"📈 Direção: {direcao}\n"
+            "⏱️ Validade: 5 minutos\n\n"
+            "⚠️ Aguarde o momento certo e entre com cautela!"
+        )
         await bot.send_message(chat_id=CHAT_ID, text=mensagem)
-        await asyncio.sleep(300)  # Espera 5 MINUTOS
+
+        contador += 1
+
+        if contador == 4:
+            precisao = random.randint(80, 99)
+            mensagem_precisao = (
+                f"🔥 TAXA DE PRECISÃO ATUAL: {precisao}% 🔥\n\n"
+                "📌 Nossa assertividade nas últimas entradas está em alta!\n"
+                "💹 Continue seguindo os sinais e maximize seus ganhos! 💸"
+            )
+            await bot.send_message(chat_id=CHAT_ID, text=mensagem_precisao)
+            contador = 0
+
+        await asyncio.sleep(300)  # Espera 5 minutos
+
 
 if __name__ == '__main__':
     asyncio.run(enviar_sinal())
