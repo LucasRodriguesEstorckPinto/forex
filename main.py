@@ -7,7 +7,7 @@ CHAT_ID = '-1002522063627'
 
 bot = Bot(token=TOKEN)
 
-# Lista completa de pares de negociação da Quotex extraídos das imagens
+# Lista completa de pares de negociação da Quotex
 pares = [
     # Cripto
     "Bitcoin Cash", "Dogecoin", "Litecoin", "Pepe", "Shiba Inu", "Solana", "Toncoin", "Trump",
@@ -15,7 +15,7 @@ pares = [
 
     # Moedas
     "AUD/JPY", "AUD/NZD", "AUD/USD", "CAD/CHF", "CAD/JPY", "CHF/JPY", "EUR/AUD", "EUR/CAD",
-    "EUR/CHF", "EUR/GBP", "EUR/JPY", "EUR/NZD", "EUR/USD", "GBP/AUD", "GBP/CAD", "GBP/CHF",
+    "EUR/CHF", "EUR/G   BP", "EUR/JPY", "EUR/NZD", "EUR/USD", "GBP/AUD", "GBP/CAD", "GBP/CHF",
     "GBP/JPY", "GBP/NZD", "GBP/USD", "NZD/CAD", "NZD/CHF", "NZD/JPY", "NZD/USD", "USD/CAD",
     "USD/CHF", "USD/JPY",
 
