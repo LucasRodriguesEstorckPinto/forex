@@ -37,24 +37,32 @@ async def enviar_sinal():
         par = random.choice(pares)
         direcao = random.choice(direcoes)
         mensagem = (
-            "🚨 NOVO SINAL DISPONÍVEL! 🚨\n\n"
-            f"🎯 Par: {par} (OTC)\n"
-            f"📈 Direção: {direcao}\n"
-            "⏱️ Validade: 5 minutos\n\n"
-            "⚠️ Aguarde o momento certo e entre com cautela!"
+            "🚨 *SINAL NOVÍSSIMO NO AR!* 🚨\n\n"
+            f"🎯 *PAR*: {par} (OTC)\n"
+            f"📈 *DIREÇÃO*: {direcao}\n"
+            "⏱️ *VALIDADE*: 5 minutos\n\n"
+            "⚠️ *Entre com estratégia e foco total!*\n\n"
+            "💥 *IMPORTANTE:* Esses sinais **FUNCIONAM SOMENTE NA QUOTEX!**\n"
+            "🔗 Crie sua conta oficial pelo link e desbloqueie o potencial completo dos sinais:\n"
+            "[👉 Acesse agora e cadastre-se!](https://seulinkdeafiliado.com)\n\n"
+            "🚀 *Não fique de fora, a próxima entrada pode ser a virada da sua banca!*"
         )
-        await bot.send_message(chat_id=CHAT_ID, text=mensagem)
+        await bot.send_message(chat_id=CHAT_ID, text=mensagem, parse_mode="Markdown")
 
         contador += 1
 
         if contador == 4:
             precisao = random.randint(80, 99)
             mensagem_precisao = (
-                f"🔥 TAXA DE PRECISÃO ATUAL: {precisao}% 🔥\n\n"
-                "📌 Nossa assertividade nas últimas entradas está em alta!\n"
-                "💹 Continue seguindo os sinais e maximize seus ganhos! 💸"
+                f"🔥 *TAXA DE PRECISÃO MONSTRUOSA: {precisao}%!* 🔥\n\n"
+                "✅ *Resultados consistentes nas últimas entradas!*\n"
+                "📊 Quem segue os sinais está *LUCRANDO DE VERDADE!*\n\n"
+                "⚡️ *Não esqueça: só funciona na Quotex!*\n"
+                "💼 Crie sua conta agora mesmo:\n"
+                "[🔐 Abrir conta oficial na Quotex](https://seulinkdeafiliado.com)\n\n"
+                "💸 *Vamos juntos rumo ao topo!*"
             )
-            await bot.send_message(chat_id=CHAT_ID, text=mensagem_precisao)
+            await bot.send_message(chat_id=CHAT_ID, text=mensagem_precisao, parse_mode="Markdown")
             contador = 0
 
         await asyncio.sleep(300)  # Espera 5 minutos
