@@ -44,7 +44,7 @@ async def enviar_sinal():
             "⚠️ *Entre com estratégia e foco total!*\n\n"
             "💥 *IMPORTANTE:* Esses sinais **FUNCIONAM SOMENTE NA QUOTEX!**\n"
             "🔗 Crie sua conta oficial pelo link e desbloqueie o potencial completo dos sinais:\n"
-            "[👉 Acesse agora e cadastre-se!](https://seulinkdeafiliado.com)\n\n"
+            "[👉 Acesse agora e cadastre-se!](https://broker-qx.pro/sign-up/?lid=1372744)\n\n"
             "🚀 *Não fique de fora, a próxima entrada pode ser a virada da sua banca!*"
         )
         await bot.send_message(chat_id=CHAT_ID, text=mensagem, parse_mode="Markdown")
@@ -59,7 +59,7 @@ async def enviar_sinal():
                 "📊 Quem segue os sinais está *LUCRANDO DE VERDADE!*\n\n"
                 "⚡️ *Não esqueça: só funciona na Quotex!*\n"
                 "💼 Crie sua conta agora mesmo:\n"
-                "[🔐 Abrir conta oficial na Quotex](https://seulinkdeafiliado.com)\n\n"
+                "[🔐 Abrir conta oficial na Quotex](https://broker-qx.pro/sign-up/?lid=1372744)\n\n"
                 "💸 *Vamos juntos rumo ao topo!*"
             )
             await bot.send_message(chat_id=CHAT_ID, text=mensagem_precisao, parse_mode="Markdown")
