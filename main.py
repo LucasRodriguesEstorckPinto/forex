@@ -28,15 +28,15 @@ pares = [
     "FTSE China A50 Index", "CAC 40", "FTSE 100", "Hong Kong 50", "IBEX 35", "EURO STOXX 50"
 ]
 
-direcoes = ["↑ CALL", "↓ PUT"]
+direcoes = ["↑ CALL - VAI SUBIR", "↓ PUT - VAI CAIR"]
 
 async def enviar_sinal():
     while True:
         par = random.choice(pares)
         direcao = random.choice(direcoes)
-        mensagem = f"📊 SINAL GERADO:\nPar: {par} (OTC)\nEntrada: {direcao}\n⏱️ Validade: 5 minutos"
+        mensagem = f"!!📊 SINAL GERADO!!:\nPar: {par} (OTC)\nEntrada: {direcao}\n⏱️ VALIDADE DE 5 MINUTOS"
         await bot.send_message(chat_id=CHAT_ID, text=mensagem)
-        await asyncio.sleep(120)  # Espera 5 segundos
+        await asyncio.sleep(300)  # Espera 5 MINUTOS
 
 if __name__ == '__main__':
     asyncio.run(enviar_sinal())
