@@ -42,8 +42,8 @@ async def enviar_sinal():
             f"📈 *DIREÇÃO*: {direcao}\n"
             "⏱️ *VALIDADE*: 5 minutos\n\n"
             "⚠️ *Entre com estratégia e foco total!*\n\n"
-            "💥 *IMPORTANTE:* Esses sinais **FUNCIONAM SOMENTE NA QUOTEX!**\n"
-            "🔗 Crie sua conta oficial pelo link e desbloqueie o potencial completo dos sinais:\n"
+            "💥 *EXCLUSIVO:* Esses sinais SÓ FUNCIONAM na **QUOTEX**!\n"
+            "🔓 Desbloqueie agora o seu acesso VIP:\n"
             "[👉 Acesse agora e cadastre-se!](https://broker-qx.pro/sign-up/?lid=1372744)\n\n"
             "🚀 *Não fique de fora, a próxima entrada pode ser a virada da sua banca!*"
         )
@@ -58,7 +58,7 @@ async def enviar_sinal():
                 "✅ *Resultados consistentes nas últimas entradas!*\n"
                 "📊 Quem segue os sinais está *LUCRANDO DE VERDADE!*\n\n"
                 "⚡️ *Não esqueça: só funciona na Quotex!*\n"
-                "💼 Crie sua conta agora mesmo:\n"
+                "🔓 Desbloqueie agora o seu acesso VIP:\n"
                 "[🔐 Abrir conta oficial na Quotex](https://broker-qx.pro/sign-up/?lid=1372744)\n\n"
                 "💸 *Vamos juntos rumo ao topo!*"
             )
