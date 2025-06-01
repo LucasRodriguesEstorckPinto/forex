@@ -59,8 +59,7 @@ async def enviar_sinal():
             f"⏳ *EXPIRAÇÃO:* {expiracao}\n"
             f"📈 *DIREÇÃO:* {direcao}\n"
             f"⏰ *HORÁRIO:* {hora_atual}\n\n"
-            "⚡️ *Entre com gestão e foco total!*\n\n"
-            "🔐 *Sinais 100% Quotex*"
+            "[👉 Libere seu acesso na corretora](https://broker-qx.pro/sign-up/?lid=1372744)\n\n"
         )
 
         await bot.send_message(chat_id=CHAT_ID, text=mensagem_entrada, parse_mode="Markdown")
