@@ -64,7 +64,7 @@ async def enviar_sinal():
 
         await bot.send_message(chat_id=CHAT_ID, text=mensagem_entrada, parse_mode="Markdown")
 
-        await asyncio.sleep(1800)  # Espera 30 minutos simulando operação
+        await asyncio.sleep(900)  # Espera 15 minutos simulando operação
 
         # 🏆 Resultado aleatório
         resultado = random.choice(["WIN", "LOSS"])
