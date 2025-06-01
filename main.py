@@ -56,7 +56,7 @@ async def enviar_sinal():
         mensagem_entrada = (
             "🚨 *ENTRADA CONFIRMADA!* 🚨\n\n"
             f"🎯 *ATIVO:* {par} (OTC)\n"
-            f"⏳ *EXPIRAÇÃO:* TIME {expiracao}\n"
+            f"⏳ *TEMPO:* {expiracao}\n"
             f"📈 *DIREÇÃO:* {direcao}\n"
             f"⏰ *HORÁRIO:* {hora_atual}\n\n"
             "[👉 Libere seu acesso na corretora](https://broker-qx.pro/sign-up/?lid=1372744)\n\n"
