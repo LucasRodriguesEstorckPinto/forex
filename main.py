@@ -2,10 +2,14 @@ import random
 import asyncio
 from telegram import Bot
 from datetime import datetime
+import pytz
 
 # 🔑 Configurações
 TOKEN = '7020817265:AAG8b_RrWQaJw_wxt-9JHQkQXI_ab4k-zRk'
 CHAT_ID = '-1002522063627'
+
+# Definir o fuso horário de São Paulo
+fuso_sp = pytz.timezone('America/Sao_Paulo')
 
 bot = Bot(token=TOKEN)
 
@@ -46,7 +50,7 @@ async def enviar_sinal():
         par = random.choice(pares)
         direcao = random.choice(direcoes)
         expiracao = random.choice(expiracoes)
-        hora_atual = datetime.now().strftime('%H:%M')
+        hora_atual = datetime.now(fuso_sp).strftime('%H:%M')
 
         # 📥 Mensagem de entrada
         mensagem_entrada = (
@@ -61,7 +65,7 @@ async def enviar_sinal():
 
         await bot.send_message(chat_id=CHAT_ID, text=mensagem_entrada, parse_mode="Markdown")
 
-        await asyncio.sleep(180)  # Espera 3 minutos simulando operação
+        await asyncio.sleep(1800)  # Espera 30 minutos simulando operação
 
         # 🏆 Resultado aleatório
         resultado = random.choice(["WIN", "LOSS"])
