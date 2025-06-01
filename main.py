@@ -1,13 +1,15 @@
 import random
 import asyncio
 from telegram import Bot
+from datetime import datetime
 
+# 🔑 Configurações
 TOKEN = '7020817265:AAG8b_RrWQaJw_wxt-9JHQkQXI_ab4k-zRk'
 CHAT_ID = '-1002522063627'
 
 bot = Bot(token=TOKEN)
 
-# Lista completa de pares de negociação da Quotex
+# 🔗 Lista de ativos e direções
 pares = [
     # Cripto
     "Bitcoin Cash", "Dogecoin", "Litecoin", "Pepe", "Shiba Inu", "Solana", "Toncoin", "Trump",
@@ -15,7 +17,7 @@ pares = [
 
     # Moedas
     "AUD/JPY", "AUD/NZD", "AUD/USD", "CAD/CHF", "CAD/JPY", "CHF/JPY", "EUR/AUD", "EUR/CAD",
-    "EUR/CHF", "EUR/G   BP", "EUR/JPY", "EUR/NZD", "EUR/USD", "GBP/AUD", "GBP/CAD", "GBP/CHF",
+    "EUR/CHF", "EUR/GBP", "EUR/JPY", "EUR/NZD", "EUR/USD", "GBP/AUD", "GBP/CAD", "GBP/CHF",
     "GBP/JPY", "GBP/NZD", "GBP/USD", "NZD/CAD", "NZD/CHF", "NZD/JPY", "NZD/USD", "USD/CAD",
     "USD/CHF", "USD/JPY",
 
@@ -29,43 +31,69 @@ pares = [
 ]
 
 direcoes = ["↑ CALL - VAI SUBIR", "↓ PUT - VAI CAIR"]
+expiracoes = ["M1", "M2", "M5", "M15"]
+
+# 🎯 Relatório
+wins = 0
+losses = 0
+total_operacoes = 0
+
 
 async def enviar_sinal():
-    contador = 0
+    global wins, losses, total_operacoes
 
-    while True:
+    for _ in range(5):  # Número de sinais na sessão
         par = random.choice(pares)
         direcao = random.choice(direcoes)
-        mensagem = (
-            "🚨 *SINAL NOVÍSSIMO NO AR!* 🚨\n\n"
-            f"🎯 *PAR*: {par} (OTC)\n"
-            f"📈 *DIREÇÃO*: {direcao}\n"
-            "⏱️ *VALIDADE*: 5 minutos\n\n"
-            "⚠️ *Entre com estratégia e foco total!*\n\n"
-            "💥 *EXCLUSIVO:* Esses sinais SÓ FUNCIONAM na **QUOTEX**!\n"
-            "🔓 Desbloqueie agora o seu acesso VIP:\n"
-            "[👉 Acesse agora e cadastre-se!](https://broker-qx.pro/sign-up/?lid=1372744)\n\n"
-            "🚀 *Não fique de fora, a próxima entrada pode ser a virada da sua banca!*"
+        expiracao = random.choice(expiracoes)
+        hora_atual = datetime.now().strftime('%H:%M')
+
+        # 📥 Mensagem de entrada
+        mensagem_entrada = (
+            "🚨 *ENTRADA CONFIRMADA!* 🚨\n\n"
+            f"🎯 *ATIVO:* {par} (OTC)\n"
+            f"⏳ *EXPIRAÇÃO:* {expiracao}\n"
+            f"📈 *DIREÇÃO:* {direcao}\n"
+            f"⏰ *HORÁRIO:* {hora_atual}\n\n"
+            "⚡️ *Entre com gestão e foco total!*\n\n"
+            "🔐 *Sinais 100% Quotex*"
         )
-        await bot.send_message(chat_id=CHAT_ID, text=mensagem, parse_mode="Markdown")
 
-        contador += 1
+        await bot.send_message(chat_id=CHAT_ID, text=mensagem_entrada, parse_mode="Markdown")
 
-        if contador == 4:
-            precisao = random.randint(80, 99)
-            mensagem_precisao = (
-                f"🔥 *TAXA DE PRECISÃO MONSTRUOSA: {precisao}%!* 🔥\n\n"
-                "✅ *Resultados consistentes nas últimas entradas!*\n"
-                "📊 Quem segue os sinais está *LUCRANDO DE VERDADE!*\n\n"
-                "⚡️ *Não esqueça: só funciona na Quotex!*\n"
-                "🔓 Desbloqueie agora o seu acesso VIP:\n"
-                "[🔐 Abrir conta oficial na Quotex](https://broker-qx.pro/sign-up/?lid=1372744)\n\n"
-                "💸 *Vamos juntos rumo ao topo!*"
-            )
-            await bot.send_message(chat_id=CHAT_ID, text=mensagem_precisao, parse_mode="Markdown")
-            contador = 0
+        await asyncio.sleep(180)  # Espera 3 minutos simulando operação
 
-        await asyncio.sleep(300)  # Espera 5 minutos
+        # 🏆 Resultado aleatório
+        resultado = random.choice(["WIN", "LOSS"])
+
+        if resultado == "WIN":
+            wins += 1
+            await bot.send_photo(chat_id=CHAT_ID, photo=open('./win.png', 'rb'))
+        else:
+            losses += 1
+            await bot.send_photo(chat_id=CHAT_ID, photo=open('./loss.png', 'rb'))
+
+        total_operacoes += 1
+        await asyncio.sleep(30)  # Pequena pausa antes do próximo sinal
+
+    # 📊 Relatório final
+    taxa_acerto = (wins / total_operacoes) * 100 if total_operacoes > 0 else 0
+
+    mensagem_relatorio = (
+        "📊 *RELATÓRIO DA SESSÃO*\n\n"
+        f"✅ *WINS:* {wins}\n"
+        f"❌ *LOSSES:* {losses}\n"
+        f"🎯 *TAXA DE ACERTO:* {taxa_acerto:.2f}%\n"
+        f"📈 *TOTAL DE OPERAÇÕES:* {total_operacoes}\n\n"
+        "🚀 *Sessão finalizada! Rumo ao topo!*"
+    )
+
+    await bot.send_message(chat_id=CHAT_ID, text=mensagem_relatorio, parse_mode="Markdown")
+
+    # 🔄 Resetar os contadores
+    wins = 0
+    losses = 0
+    total_operacoes = 0
 
 
 if __name__ == '__main__':
