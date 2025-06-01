@@ -62,7 +62,14 @@ async def enviar_sinal():
             "[👉 Opere agora](https://broker-qx.pro/sign-up/?lid=1372744)\n\n"
         )
 
-        await bot.send_message(chat_id=CHAT_ID, text=mensagem_entrada, parse_mode="Markdown")
+        # Envia a mensagem e captura o ID da mensagem
+        msg = await bot.send_message(
+            chat_id=CHAT_ID,
+            text=mensagem_entrada,
+            parse_mode="Markdown"
+        )
+
+        mensagem_id = msg.message_id  # Pegando o ID da mensagem enviada
 
         await asyncio.sleep(900)  # Espera 15 minutos simulando operação
 
@@ -71,10 +78,18 @@ async def enviar_sinal():
 
         if resultado == "WIN":
             wins += 1
-            await bot.send_photo(chat_id=CHAT_ID, photo=open('./win.png', 'rb'))
+            await bot.send_photo(
+                chat_id=CHAT_ID,
+                photo=open('./win.png', 'rb'),
+                reply_to_message_id=mensagem_id
+            )
         else:
             losses += 1
-            await bot.send_photo(chat_id=CHAT_ID, photo=open('./loss.png', 'rb'))
+            await bot.send_photo(
+                chat_id=CHAT_ID,
+                photo=open('./loss.png', 'rb'),
+                reply_to_message_id=mensagem_id
+            )
 
         total_operacoes += 1
         await asyncio.sleep(30)  # Pequena pausa antes do próximo sinal
