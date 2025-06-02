@@ -109,7 +109,7 @@ async def enviar_sinal():
     )
 
     await bot.send_message(chat_id=CHAT_ID, text=mensagem_relatorio, parse_mode="Markdown")
-    await asyncio.sleep(900)
+    await asyncio.sleep(300)
     # 🔄 Resetar os contadores
     wins = 0
     losses = 0
