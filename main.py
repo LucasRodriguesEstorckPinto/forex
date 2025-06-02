@@ -75,7 +75,7 @@ async def enviar_sinal():
 
 
         # 🏆 Resultado com 60% de chance de WIN
-        resultado = "WIN" if random.random() < 0.6 else "LOSS"
+        resultado = "WIN" if random.random() < 0.7 else "LOSS"
 
 
         if resultado == "WIN":
