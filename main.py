@@ -73,8 +73,10 @@ async def enviar_sinal():
 
         await asyncio.sleep(900)  # Espera 15 minutos simulando operação
 
-        # 🏆 Resultado aleatório
-        resultado = random.choice(["WIN", "LOSS"])
+
+        # 🏆 Resultado com 60% de chance de WIN
+        resultado = "WIN" if random.random() < 0.6 else "LOSS"
+
 
         if resultado == "WIN":
             wins += 1
