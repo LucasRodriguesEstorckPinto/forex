@@ -77,7 +77,6 @@ async def enviar_sinal():
         # 🏆 Resultado com 60% de chance de WIN
         resultado = "WIN" if random.random() < 0.9 else "LOSS"
 
-
         if resultado == "WIN":
             wins += 1
             await bot.send_photo(
